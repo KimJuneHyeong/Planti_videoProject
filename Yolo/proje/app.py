@@ -12,7 +12,7 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'bmp'}
 
 # ❗❗❗ [수정 필요] 학습된 모델('best.pt')의 실제 경로를 지정해주세요.
 # 아래 경로 예시는 testing.py 파일을 참고했습니다.
-model_path = '/home/hyunjunoh/yoloTest/cherry tomato.v6i.yolov11/train_result/weights/best.pt'
+model_path = '파일경로'
 model = YOLO(model_path)
 
 def allowed_file(filename):
