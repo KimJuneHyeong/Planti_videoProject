@@ -14,6 +14,9 @@ public class PhotoResponseDto {
     private final String fileName;
     private final String deviceSerialNumber;
 
+    private final String analysisResult;
+    private final Double confidence;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private final LocalDateTime createdAt;
 
@@ -24,5 +27,7 @@ public class PhotoResponseDto {
         this.fileName = photo.getFileName();
         this.deviceSerialNumber = photo.getDevice().getId();
         this.createdAt = photo.getCreatedAt();
+        this.analysisResult = photo.getAnalysisResult();
+        this.confidence = photo.getConfidence();
     }
 }
