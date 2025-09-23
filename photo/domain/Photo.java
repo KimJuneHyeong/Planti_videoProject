@@ -24,10 +24,22 @@ public class Photo extends TimeStamped {
     @Column(nullable = false)
     private String fileName;
 
+    @Column
+    private String analysisResult; // 예: "level 3", "bug"
+
+    @Column
+    private Double confidence; // 예: 0.95 (95% 신뢰도)
+
     // 직접 선언
     public Photo(Device device, String filePath, String fileName) {
         this.device = device;
         this.filePath = filePath;
         this.fileName = fileName;
+    }
+
+    // 분석 결과 업데이트
+    public void updateAnalysis(String result, Double confidence) {
+        this.analysisResult = result;
+        this.confidence = confidence;
     }
 }
