@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.IOException;
 
@@ -30,5 +31,11 @@ public class PhotoController {
 
         // 생성 성공 시, 201 CREATED 상태 코드와 생성된 리소스의 DTO를 함께 반환
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
+    }
+
+    @GetMapping("/photos/latest")
+    public ResponseEntity<PhotoResponseDto> getLatestPhoto() {
+        PhotoResponseDto responseDto = photoService.findLatestPhoto();
+        return ResponseEntity.ok(responseDto);
     }
 }
